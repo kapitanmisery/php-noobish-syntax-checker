@@ -1,0 +1,1 @@
+# php-noobish-syntax-checker
