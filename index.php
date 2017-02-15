@@ -5,6 +5,9 @@ String str1 = 'hello';
 Print 'hello';
 Something 'Hi';
 String str2 = 'Unterminated line'
+Numeric num2 = #notanumericvalue;
+String str3 'No equal operator';
+Numeric num3 3333;
 ";
 $code = htmlspecialchars($str);
 ?>

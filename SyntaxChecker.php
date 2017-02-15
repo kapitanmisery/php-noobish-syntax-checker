@@ -105,12 +105,25 @@ class SyntaxChecker
             return  $str;
         }
 
+        $cleanCode = rtrim($cleanCode,";");
+
         $parts = preg_split('/\s+/', $cleanCode);
         $keyword = $parts[0];
 
         if(!in_array($keyword, $validIdentifiers)) {
 
             $str .= " Invalid keyword [" . $keyword . "] specified.";
+            return  $str;
+        }
+
+        if($keyword == "Numeric" && !is_numeric($parts[3])) {
+            $str .= " Invalid numeric value [" . $parts[3] . "] specified.";
+            return  $str;
+        }
+
+        if(($keyword == "Numeric" || $keyword == "String" )
+            && ($parts[2] != "=")) {
+            $str .= " No equal [=] operator specified upon [".$keyword."] Declration.";
             return  $str;
         }
 
